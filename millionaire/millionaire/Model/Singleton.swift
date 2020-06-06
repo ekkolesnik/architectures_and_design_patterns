@@ -11,9 +11,27 @@ import UIKit
 class Game {
     
     var gameSession: GameSession?
-    
+
     static let activate: Game = .init()
     
-    private init() {}
+    private let recordsCaretaker = RecordsCaretaker()
+    
+    private(set) var records: [GameSession] {
+        didSet {
+            recordsCaretaker.save(records: self.records)
+        }
+    }
+
+    private init() {
+        self.records = self.recordsCaretaker.retrieveRecords()
+    }
+    
+    func result() {
+        let right = gameSession!.rightQestion
+        let num = gameSession!.numberQestion
+        let percent = String(Double(right) / Double(num) * 100)
+        Game.activate.gameSession?.resultGame = percent
+        self.records.append(gameSession!)
+    }
     
 }

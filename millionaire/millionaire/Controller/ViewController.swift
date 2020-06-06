@@ -9,28 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-//    var newGame: GameSession?
-    
-    weak var delegate: GameSessionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
-    @IBAction func playGameButton(_ sender: Any) {
-        Game.activate.gameSession = .init()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gameSegue" {
+            guard let distanation = segue.destination as? GameViewController else { return }
+            distanation.gameDelegate = self
+            
+            Game.activate.gameSession = .init()
+            
+        }
     }
 }
 
 extension ViewController: GameSessionDelegate {
-    func numberQuestion(number: Int) {
+    
+    func updateFunc(number: Int, right: Int) {
         Game.activate.gameSession?.numberQestion = number
-        print(#function)
-    }
-
-    func rightQuestion(number: Int) {
-        Game.activate.gameSession?.rightQestion = number
+        Game.activate.gameSession?.rightQestion = right
+        Game.activate.result()
     }
 }

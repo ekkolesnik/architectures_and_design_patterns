@@ -30,8 +30,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="playGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZa-mm-eah"/>
-                                            <segue destination="FEv-0s-aWD" kind="show" id="h7e-d9-VpN"/>
+                                            <segue destination="FEv-0s-aWD" kind="show" identifier="gameSegue" id="h7e-d9-VpN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaL-I6-DhQ">
@@ -45,7 +44,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="6BQ-jm-aTD" kind="show" id="R2W-z9-em4"/>
+                                            <segue destination="dw2-EN-c4E" kind="show" identifier="" id="FKg-tx-UVJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -63,21 +62,53 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
-        <!--Results View Controller-->
-        <scene sceneID="qty-hu-Jfw">
+        <!--Results Table View Controller-->
+        <scene sceneID="eLZ-Ud-gVW">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="6BQ-jm-aTD" customClass="ResultsViewController" customModule="millionaire" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UdU-JN-pyh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <tableViewController id="dw2-EN-c4E" customClass="ResultsTableViewController" customModule="millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NQk-uO-ebi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="ypN-PO-ZP9"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="e3x-hV-1Qr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3sV-f1-gUk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultSegue" id="1Ef-DX-MCN" customClass="ResultsCell" customModule="millionaire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ef-DX-MCN" id="NRa-8X-zp9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-Fg-DW0">
+                                            <rect key="frame" x="177" y="7" width="60" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="sJ7-2m-Av4"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="z2d-yt-l7o"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RNs-Fg-DW0" firstAttribute="centerY" secondItem="NRa-8X-zp9" secondAttribute="centerY" id="5CF-8b-Swd"/>
+                                        <constraint firstItem="RNs-Fg-DW0" firstAttribute="centerX" secondItem="NRa-8X-zp9" secondAttribute="centerX" id="rOG-Pn-XBE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="percentLabel" destination="RNs-Fg-DW0" id="yPh-L1-jVP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dw2-EN-c4E" id="fMv-WY-nTt"/>
+                            <outlet property="delegate" destination="dw2-EN-c4E" id="p4u-e5-zE0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="rWV-XZ-G9x"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iw3-xr-BKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="550"/>
+            <point key="canvasLocation" x="1112" y="565"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="cNo-lm-EJl">
@@ -102,7 +133,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atk-sQ-PfF">
                                         <rect key="frame" x="0.0" y="35" width="250" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="oWo-On-6T5"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="oWo-On-6T5"/>
                                             <constraint firstAttribute="height" constant="70" id="pcS-O0-i1V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>

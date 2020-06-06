@@ -8,9 +8,8 @@
 
 import UIKit
 
-class GameSession {
-    
-    var numberQestion = 0
-    var rightQestion = 0
-    
+class GameSession: Codable {
+    var numberQestion: Int = 0
+    var rightQestion: Int = 0
+    var resultGame: String = ""
 }

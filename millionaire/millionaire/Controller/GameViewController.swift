@@ -9,8 +9,7 @@
 import UIKit
 
 protocol GameSessionDelegate: class {
-    func numberQuestion(number: Int)
-    func rightQuestion(number: Int)
+    func updateFunc(number: Int, right: Int)
 }
 
 class GameViewController: UIViewController {
@@ -44,7 +43,7 @@ class GameViewController: UIViewController {
     var answerArray5 = [String]()
     
     var index = 0
-    var numberOfQuestions = 0
+    var numberOfQuestions = 5
     var rightQestion = 0
 
     override func viewDidLoad() {
@@ -91,15 +90,10 @@ class GameViewController: UIViewController {
             questionTextLabel.text = qqq.question2
             renameButton(arrayAnswer: answerArray2)
             index = 2
-            numberOfQuestions += 1
             rightQestion += 1
-//            self.gameDelegate?.numberQuestion()
-//            self.gameDelegate?.rightQuestion()
         } else {
             index = 0
-            numberOfQuestions += 1
             endGame()
-            
         }
     }
     
@@ -108,17 +102,13 @@ class GameViewController: UIViewController {
             questionTextLabel.text = qqq.question3
             renameButton(arrayAnswer: answerArray3)
             index = 3
-            numberOfQuestions += 1
             rightQestion += 1
         } else if index == 5 && answer5 == answerArray5[1] {
             print("WIN!")
             index = 0
-            numberOfQuestions += 1
             rightQestion += 1
             endGame()
-            
         } else {
-            numberOfQuestions += 1
             index = 0
             endGame()
         }
@@ -129,11 +119,9 @@ class GameViewController: UIViewController {
             questionTextLabel.text = qqq.question4
             renameButton(arrayAnswer: answerArray4)
             index = 4
-            numberOfQuestions += 1
             rightQestion += 1
         }  else {
             index = 0
-            numberOfQuestions += 1
             endGame()
         }
     }
@@ -143,24 +131,17 @@ class GameViewController: UIViewController {
             questionTextLabel.text = qqq.question5
             renameButton(arrayAnswer: answerArray5)
             index = 5
-            numberOfQuestions += 1
             rightQestion += 1
         }  else {
-            numberOfQuestions += 1
             index = 0
             endGame()
         }
     }
     
     func endGame() {
-        self.gameDelegate?.numberQuestion(number: numberOfQuestions)
-        self.gameDelegate?.rightQuestion(number: rightQestion)
-        print(rightQestion)
-        print(numberOfQuestions)
+        self.gameDelegate?.updateFunc(number: numberOfQuestions, right: rightQestion)
         self.dismiss(animated: true, completion: nil)
-        
     }
-    
 }
 
 

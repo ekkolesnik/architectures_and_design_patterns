@@ -29,28 +29,4 @@ struct Qestion {
     var answerArray5 = ["страус", "мышь", "бегемот", "ёжик"]
     var answer5 = "мышь"
     
-//    func qestion_1() -> String {
-//        return "Какого цвета ёлка?"
-//    }
-//    
-//    func answer_1() -> String {
-//        return "зелёный"
-//    }
-//    
-//    func answerArray_1() -> [String] {
-//        return ["зелёный", "красный", "чёрный", "белый"]
-//    }
-//    
-//    func qestion_2() -> String {
-//        return "сколько часов в сутках?"
-//    }
-//    
-//    func answer_2() -> String {
-//        return "24"
-//    }
-//    
-//    func answerArray_2() -> [String] {
-//        return ["12", "24", "5", "42"]
-//    }
-    
 }
