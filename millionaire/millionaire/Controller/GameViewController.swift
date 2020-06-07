@@ -22,56 +22,47 @@ class GameViewController: UIViewController {
     
     weak var gameDelegate: GameSessionDelegate?
     
-    let qqq = Qestion.init()
-    
-    var qestion1 = ""
-    var qestion2 = ""
-    var qestion3 = ""
-    var qestion4 = ""
-    var qestion5 = ""
-    
-    var answer1 = ""
-    var answer2 = ""
-    var answer3 = ""
-    var answer4 = ""
-    var answer5 = ""
-    
-    var answerArray1 = [String]()
-    var answerArray2 = [String]()
-    var answerArray3 = [String]()
-    var answerArray4 = [String]()
-    var answerArray5 = [String]()
-    
     var index = 0
     var numberOfQuestions = 5
     var rightQestion = 0
-
+    
+    let arrayJSON = Bundle.main.decode([QuestionJSON].self, from: "question.json")
+    
+    func setupQuestion() {
+        
+        let question = arrayJSON[index]
+        
+        questionTextLabel.text = question.question
+        answerButton1.setTitle(question.answer[0], for: .normal)
+        answerButton2.setTitle(question.answer[1], for: .normal)
+        answerButton3.setTitle(question.answer[2], for: .normal)
+        answerButton4.setTitle(question.answer[3], for: .normal)
+    }
+    
+    func responseCheck(number: Int) {
+        
+        let question = arrayJSON[index]
+        
+        if index == 4 && question.answer[number] == question.rightAnswer {
+            print(index)
+            index = 0
+            rightQestion += 1
+            endGame()
+        } else if question.answer[number] == question.rightAnswer {
+            print(index)
+            index += 1
+            rightQestion += 1
+            setupQuestion()
+        } else {
+            index = 0
+            endGame()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        qestion1 = qqq.question1
-        qestion2 = qqq.question2
-        qestion3 = qqq.question3
-        qestion4 = qqq.question4
-        qestion5 = qqq.question5
-        
-        answerArray1 = qqq.answerArray1
-        answerArray2 = qqq.answerArray2
-        answerArray3 = qqq.answerArray3
-        answerArray4 = qqq.answerArray4
-        answerArray5 = qqq.answerArray5
-        
-        answer1 = qqq.answer1
-        answer2 = qqq.answer2
-        answer3 = qqq.answer3
-        answer4 = qqq.answer4
-        answer5 = qqq.answer5
-
-        questionTextLabel.text = qqq.question1
-        
-        renameButton(arrayAnswer: answerArray1)
-        
-        index = 1
+        setupQuestion()
         
     }
     
@@ -86,56 +77,19 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func answerButton1(_ sender: Any) {
-        if index == 1 && answer1 == answerArray1[0] {
-            questionTextLabel.text = qqq.question2
-            renameButton(arrayAnswer: answerArray2)
-            index = 2
-            rightQestion += 1
-        } else {
-            index = 0
-            endGame()
-        }
+        responseCheck(number: 0)
     }
     
     @IBAction func answerButton2(_ sender: Any) {
-        if index == 2 && answer2 == answerArray2[1] {
-            questionTextLabel.text = qqq.question3
-            renameButton(arrayAnswer: answerArray3)
-            index = 3
-            rightQestion += 1
-        } else if index == 5 && answer5 == answerArray5[1] {
-            print("WIN!")
-            index = 0
-            rightQestion += 1
-            endGame()
-        } else {
-            index = 0
-            endGame()
-        }
+        responseCheck(number: 1)
     }
     
     @IBAction func answerButton3(_ sender: Any) {
-        if index == 3 && answer3 == answerArray3[2] {
-            questionTextLabel.text = qqq.question4
-            renameButton(arrayAnswer: answerArray4)
-            index = 4
-            rightQestion += 1
-        }  else {
-            index = 0
-            endGame()
-        }
+        responseCheck(number: 2)
     }
     
     @IBAction func answerButton4(_ sender: Any) {
-        if index == 4 && answer4 == answerArray4[3] {
-            questionTextLabel.text = qqq.question5
-            renameButton(arrayAnswer: answerArray5)
-            index = 5
-            rightQestion += 1
-        }  else {
-            index = 0
-            endGame()
-        }
+        responseCheck(number: 3)
     }
     
     func endGame() {
