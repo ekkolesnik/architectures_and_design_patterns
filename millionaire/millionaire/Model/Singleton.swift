@@ -14,6 +14,8 @@ class Game {
 
     static let activate: Game = .init()
     
+    var strategy: GameStrategy = СonsistentlyStrategy()
+    
     private let recordsCaretaker = RecordsCaretaker()
     
     private(set) var records: [GameSession] {

@@ -15,12 +15,4 @@ struct QuestionJSON: Codable {
     var rightAnswer: String
     var id: Int
     
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-//    
-//    static func == (lhs: QuestionJSON, rhs: QuestionJSON) -> Bool {
-//        return lhs.id == rhs.id
-//    }
-    
 }

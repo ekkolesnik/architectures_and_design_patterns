@@ -12,4 +12,6 @@ class GameSession: Codable {
     var numberQestion: Int = 0
     var rightQestion: Int = 0
     var resultGame: String = ""
+    var currentNumber: Int = 0
+//    var currentNumber = Observable<Int>(0)
 }
