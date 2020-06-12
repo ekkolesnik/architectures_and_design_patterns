@@ -9,20 +9,20 @@
 import UIKit
 
 protocol GameStrategy {
-    func choiceOfStrategy(index: Int, array: [QuestionJSON]) -> QuestionJSON
+    func choiceOfStrategy(array: [QuestionJSON]) -> [QuestionJSON]
 }
 
 class СonsistentlyStrategy: GameStrategy {
-    func choiceOfStrategy(index: Int, array: [QuestionJSON]) -> QuestionJSON {
-        let array = array[index]
+    func choiceOfStrategy(array: [QuestionJSON]) -> [QuestionJSON] {
+        let array = array
         
         return array
     }
 }
 
 class RendomStrategy: GameStrategy {
-    func choiceOfStrategy(index: Int, array: [QuestionJSON]) -> QuestionJSON {
-        let array = array.randomElement()!
+    func choiceOfStrategy(array: [QuestionJSON]) -> [QuestionJSON] {
+        let array = array.shuffled()
         
         return array
     }

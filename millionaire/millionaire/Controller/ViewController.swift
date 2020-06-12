@@ -28,10 +28,10 @@ class ViewController: UIViewController {
 
 extension ViewController: GameSessionDelegate {
     
-    func updateFunc(number: Int, right: Int, currentNumber: Int) {
+    func updateFunc(number: Int, right: Int) { // , currentNumber: Int
         Game.activate.gameSession?.numberQestion = number
         Game.activate.gameSession?.rightQestion = right
-        Game.activate.gameSession?.currentNumber = currentNumber
+//        Game.activate.gameSession?.currentNumber = currentNumber
         Game.activate.result()
     }
 }
