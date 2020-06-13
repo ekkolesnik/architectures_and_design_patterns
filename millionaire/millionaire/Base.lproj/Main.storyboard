@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Cvh-WA-PrZ">
-                                <rect key="frame" x="82" y="331.5" width="250" height="233"/>
+                                <rect key="frame" x="82" y="198.5" width="250" height="499"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAe-nA-8xL">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
@@ -39,12 +39,40 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="ZX2-XB-haa"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Результаты">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="dw2-EN-c4E" kind="show" identifier="" id="FKg-tx-UVJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-3F-Pru">
+                                        <rect key="frame" x="0.0" y="266" width="250" height="100"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="frE-WB-UPM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Настройки">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="1jv-8F-7fb" kind="show" id="fMJ-9F-AYr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUZ-1f-HrN">
+                                        <rect key="frame" x="0.0" y="399" width="250" height="100"/>
+                                        <color key="backgroundColor" red="1" green="0.71572834367621707" blue="0.35886379321930972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Lvb-Wn-cXS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Добавить вопрос">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="O0I-gU-tjP" kind="show" id="GK0-iu-jH8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -60,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+            <point key="canvasLocation" x="443" y="127"/>
         </scene>
         <!--Results Table View Controller-->
         <scene sceneID="eLZ-Ud-gVW">
@@ -108,7 +136,179 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw3-xr-BKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="565"/>
+            <point key="canvasLocation" x="1458" y="127"/>
+        </scene>
+        <!--Add Question View Controller-->
+        <scene sceneID="RNf-Ft-Hkm">
+            <objects>
+                <viewController id="O0I-gU-tjP" customClass="AddQuestionViewController" customModule="millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xf9-7F-sxO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tNo-0i-pvL">
+                                <rect key="frame" x="82" y="211" width="250" height="420.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавляем вопрос" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Id-Da-d7Q">
+                                        <rect key="frame" x="49" y="0.0" width="152" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вопрос" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-9Q-tFb">
+                                        <rect key="frame" x="0.0" y="30.5" width="250" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="TpS-aT-VuK"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="efj-YZ-kAH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ №1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tyv-m2-Op2">
+                                        <rect key="frame" x="0.0" y="140.5" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="yQw-da-Jh4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ №2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpS-Cg-R7i">
+                                        <rect key="frame" x="0.0" y="184.5" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="sIl-jw-NiA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ №3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37m-yn-QPH">
+                                        <rect key="frame" x="0.0" y="228.5" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="qiS-lt-zfP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ №4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GsV-3e-hfD">
+                                        <rect key="frame" x="0.0" y="272.5" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="P3g-Im-ucW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Правильный ответ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ptl-42-UHk">
+                                        <rect key="frame" x="0.0" y="316.5" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="f8K-y5-smt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3r-LU-P8t">
+                                        <rect key="frame" x="0.0" y="360.5" width="250" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.71572834370000005" blue="0.3588637932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="4zj-1r-Jjr"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="yxQ-YL-DFk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Добавить">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButton:" destination="O0I-gU-tjP" eventType="touchUpInside" id="xd9-dC-NSI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tNo-0i-pvL" firstAttribute="centerY" secondItem="Xf9-7F-sxO" secondAttribute="centerY" id="eaC-QZ-eSO"/>
+                            <constraint firstItem="tNo-0i-pvL" firstAttribute="centerX" secondItem="Xf9-7F-sxO" secondAttribute="centerX" id="haS-oG-xk0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vmI-4T-1d3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QtD-ta-1HA"/>
+                    <connections>
+                        <outlet property="answer1Label" destination="tyv-m2-Op2" id="uPI-3l-odU"/>
+                        <outlet property="answer2Label" destination="hpS-Cg-R7i" id="uXn-wh-6K5"/>
+                        <outlet property="answer3Label" destination="37m-yn-QPH" id="bR7-ug-w2f"/>
+                        <outlet property="answer4Label" destination="GsV-3e-hfD" id="Mzb-Bd-9Ne"/>
+                        <outlet property="questionLabel" destination="fnD-9Q-tFb" id="xXr-Zb-5bn"/>
+                        <outlet property="rightAnswer" destination="Ptl-42-UHk" id="LxN-Xr-ypV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Gq-dE-J8F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446.37681159420293" y="885.9375"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="4iK-a7-eJC">
+            <objects>
+                <viewController id="1jv-8F-7fb" customClass="SettingsViewController" customModule="millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HKY-rr-uxC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kjd-DK-oZc">
+                                <rect key="frame" x="98.5" y="261" width="217" height="320"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите режим игры" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8Q-80-hBD">
+                                        <rect key="frame" x="0.0" y="0.0" width="217" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Qj6-cF-xBg"/>
+                                            <constraint firstAttribute="height" constant="100" id="lZr-4n-SEn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfe-R7-Hyi">
+                                        <rect key="frame" x="8.5" y="110" width="200" height="100"/>
+                                        <color key="backgroundColor" red="1" green="0.71572834370000005" blue="0.3588637932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="bUy-w4-IlM"/>
+                                            <constraint firstAttribute="height" constant="100" id="tVE-cp-D15"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Последовательный">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="consistentlyButton:" destination="1jv-8F-7fb" eventType="touchUpInside" id="MTq-3Q-eZJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwl-Wc-ks0">
+                                        <rect key="frame" x="8.5" y="220" width="200" height="100"/>
+                                        <color key="backgroundColor" red="0.78624516730000005" green="0.86873072389999995" blue="0.38811808819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="YYK-yG-TT7"/>
+                                            <constraint firstAttribute="height" constant="100" id="zUl-4V-1ag"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Случайный">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="randomeButton:" destination="1jv-8F-7fb" eventType="touchUpInside" id="S10-dy-pLe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kjd-DK-oZc" firstAttribute="centerX" secondItem="HKY-rr-uxC" secondAttribute="centerX" id="EzA-I7-Eeg"/>
+                            <constraint firstItem="kjd-DK-oZc" firstAttribute="centerY" secondItem="HKY-rr-uxC" secondAttribute="centerY" id="vLj-9H-4nv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kw1-Dd-K5B"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7sl-Bt-IDc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uqj-ap-AdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457.9710144927537" y="885.9375"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="cNo-lm-EJl">
@@ -119,7 +319,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-wO-kb6">
-                                <rect key="frame" x="82" y="223" width="250" height="450"/>
+                                <rect key="frame" x="82" y="198" width="250" height="500"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA9-5g-djI">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
@@ -200,9 +400,19 @@
                                             <action selector="answerButton4:" destination="FEv-0s-aWD" eventType="touchUpInside" id="AMz-zz-uli"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCG-aF-2a6">
+                                        <rect key="frame" x="0.0" y="460" width="250" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="yqf-1P-63k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cIv-he-nAK" secondAttribute="trailing" id="1CC-n8-MhU"/>
+                                    <constraint firstItem="BCG-aF-2a6" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="1bc-ae-2r3"/>
                                     <constraint firstAttribute="trailing" secondItem="OaP-ns-DtP" secondAttribute="trailing" id="4S7-NH-Fa2"/>
                                     <constraint firstItem="OaP-ns-DtP" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="8nh-cB-pIV"/>
                                     <constraint firstAttribute="trailing" secondItem="Yqh-8B-c1g" secondAttribute="trailing" id="Ccq-Gr-tvu"/>
@@ -213,6 +423,7 @@
                                     <constraint firstItem="5xD-eE-zT1" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="TQo-zh-EzH"/>
                                     <constraint firstItem="4CB-K1-m1Q" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="ffe-Bj-Bsb"/>
                                     <constraint firstItem="Yqh-8B-c1g" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="gor-3M-Vht"/>
+                                    <constraint firstAttribute="trailing" secondItem="BCG-aF-2a6" secondAttribute="trailing" id="hKP-Se-jgM"/>
                                     <constraint firstItem="wA9-5g-djI" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="l4N-vh-2Fd"/>
                                     <constraint firstAttribute="trailing" secondItem="5xD-eE-zT1" secondAttribute="trailing" id="lp0-6R-xrn"/>
                                     <constraint firstItem="Atk-sQ-PfF" firstAttribute="leading" secondItem="H4k-wO-kb6" secondAttribute="leading" id="tbh-OM-3dl"/>
@@ -234,12 +445,13 @@
                         <outlet property="answerButton2" destination="OaP-ns-DtP" id="R3t-Un-nog"/>
                         <outlet property="answerButton3" destination="Yqh-8B-c1g" id="Wpz-V4-e1S"/>
                         <outlet property="answerButton4" destination="4CB-K1-m1Q" id="IXX-LV-eFr"/>
+                        <outlet property="infoButton" destination="BCG-aF-2a6" id="FRG-Xi-adr"/>
                         <outlet property="questionTextLabel" destination="Atk-sQ-PfF" id="ZR2-lc-9zG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYC-sj-eEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111.5942028985507" y="-140.625"/>
+            <point key="canvasLocation" x="1458" y="-574"/>
         </scene>
     </scenes>
 </document>

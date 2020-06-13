@@ -11,8 +11,16 @@ import UIKit
 class Game {
     
     var gameSession: GameSession?
+    
+    var addQuestion: AddQuestion?
 
     static let activate: Game = .init()
+    
+    var strategy: GameStrategy = СonsistentlyStrategy()
+    
+    var question = [QuestionJSON]()
+    
+    var questionAdd = [AddQuestion]()
     
     private let recordsCaretaker = RecordsCaretaker()
     
@@ -21,9 +29,18 @@ class Game {
             recordsCaretaker.save(records: self.records)
         }
     }
+    
+    private let addQuestionCaretaker = AddQuestionCaretaker()
+    
+    private(set) var recordsAdd: [AddQuestion] {
+        didSet {
+            addQuestionCaretaker.save(records: self.recordsAdd)
+        }
+    }
 
     private init() {
         self.records = self.recordsCaretaker.retrieveRecords()
+        self.recordsAdd = self.addQuestionCaretaker.retrieveRecords()
     }
     
     func result() {
@@ -32,6 +49,11 @@ class Game {
         let percent = String(Double(right) / Double(num) * 100)
         Game.activate.gameSession?.resultGame = percent
         self.records.append(gameSession!)
+        
+    }
+    
+    func addResult() {
+        self.recordsAdd.append(addQuestion!)
     }
     
 }
