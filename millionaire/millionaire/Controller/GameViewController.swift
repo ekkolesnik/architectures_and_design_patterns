@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     weak var gameDelegate: GameSessionDelegate?
     
     var index = 0
-    var numberOfQuestions = 5
+    var numberOfQuestions = 0
     var rightQestion = 0
     
     var strategy: GameStrategy = Game.activate.strategy
@@ -38,6 +38,39 @@ class GameViewController: UIViewController {
     func setupQuestion() {
         
         question = strategy.choiceOfStrategy(array: arrayJSON)
+        
+        
+        if !Game.activate.recordsAdd.isEmpty {
+            for i in Game.activate.recordsAdd {
+                
+                
+                
+                let q = i.question
+                let a = i.answers
+                let r = i.rightAnswer
+                let i = i.id
+                
+                let question: QuestionJSON = .init(question: q, answer: a, rightAnswer: r, id: i)
+                
+//                question?.question = q
+//                question?.answer = a
+//                question?.rightAnswer = r
+//                question?.id = i
+                
+                self.question?.append(question)
+            }
+        }
+
+                if !Game.activate.question.isEmpty {
+                    question?.append(contentsOf: Game.activate.question)
+
+        //            numberOfQuestions = question!.count
+                }
+        
+        
+        numberOfQuestions = question!.count
+
+
         
         let indexQuestion = question![0]
         
@@ -65,7 +98,7 @@ class GameViewController: UIViewController {
         
         let question = self.question![index]
         
-        if index == 4 && question.answer[number] == question.rightAnswer {
+        if index == (self.question!.count - 1) && question.answer[number] == question.rightAnswer {
             index = 0
             rightQestion += 1
             Game.activate.gameSession?.currentNumber.value += 1
@@ -84,13 +117,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupQuestion()
+        
         Game.activate.gameSession?.currentNumber.addObserver(self, options: [.new, .initial], closure: { [weak self] (currentNumber, _) in
             let textInt = Game.activate.gameSession?.currentNumber.value ?? 0
-            let percent = String(Double(self!.rightQestion) / Double(self!.numberOfQuestions) * 100)
-            self!.infoButton.text = "Номер вопроса: \(textInt + 1) из 5, \n% правильных ответов: \(percent)"
+            let percent = String(Double(self!.rightQestion) / Double(self!.question!.count) * 100)
+            self!.infoButton.text = "Номер вопроса: \(textInt + 1) из \(self!.question?.count ?? 0), \n% правильных ответов: \(percent)"
             })
-
-            setupQuestion()
         
     }
     
@@ -121,7 +154,7 @@ class GameViewController: UIViewController {
     }
     
     func endGame() {
-        self.gameDelegate?.updateFunc(number: numberOfQuestions, right: rightQestion) //, currentNumber: currentNumber
+        self.gameDelegate?.updateFunc(number: numberOfQuestions, right: rightQestion)
         self.dismiss(animated: true, completion: nil)
     }
 }

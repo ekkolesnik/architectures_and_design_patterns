@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Game.activate.addQuestion = .init()
+        
+        print(Game.activate.recordsAdd)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -21,6 +25,8 @@ class ViewController: UIViewController {
             distanation.gameDelegate = self
             
             Game.activate.gameSession = .init()
+            
+            
             
         }
     }
@@ -31,7 +37,7 @@ extension ViewController: GameSessionDelegate {
     func updateFunc(number: Int, right: Int) { // , currentNumber: Int
         Game.activate.gameSession?.numberQestion = number
         Game.activate.gameSession?.rightQestion = right
-//        Game.activate.gameSession?.currentNumber = currentNumber
         Game.activate.result()
+        
     }
 }
